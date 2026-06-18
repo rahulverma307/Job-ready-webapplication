@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
+import { useNavigate ,Link } from "react-router";
 
 import "../auth.form.css";
 
 const Login = () => {
+
+    const navigate=useNavigate()
   const clickSound = useRef(new Audio("../click.mp3"));
 
   const playClickSound = () => {
@@ -45,6 +48,9 @@ const Login = () => {
             Login
           </button>
         </form>
+        <p className="auth-link">
+           Don't have an Account? <Link to="/register">Register</Link>
+        </p>
       </div>
     </main>
   );

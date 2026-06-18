@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router";
-import { useNavigate } from "react-router";
+import { useNavigate ,Link } from "react-router";
 import "../auth.form.css";
 
 const Register = () => {
@@ -11,6 +10,7 @@ const Register = () => {
     clickSound.current.currentTime = 0;
     clickSound.current.play().catch((err) => console.log(err));
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
