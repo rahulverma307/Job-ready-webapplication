@@ -1,5 +1,6 @@
 const userModel = require("../models/user.model.js")
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 
 /**
@@ -24,10 +25,16 @@ const registerUser=async(req,res)=>{
 
  const hash= await bcrypt.hash(password,10)
 
- const user = await userModel.create({username,email,hash})
+ const user = await userModel.create(
+   {
+      username,
+      email,
+      password:hash
+   })
 
 
- const token = jwt.sign({id:user._id,username:user.username},
+ const token = jwt.sign(
+   {id:user._id,username:user.username},
    process.env.JWT_SECRET,
    {expiresIn:"1h"})
 
@@ -49,8 +56,12 @@ const registerUser=async(req,res)=>{
  * @access Public
  */
 
-const loginUser=async()=>{
+const loginUser=async(req,res)=>{
    const {email,password}=req.body;
+
+   if(!email || !password){
+      return res.status(400).json({message:"Please provide email and password"})
+   }
 
    const user= await userModel.findOne({email})
    if(!user){
@@ -85,5 +96,16 @@ const loginUser=async()=>{
 
 }
 
+/**
+ * @name logoutUserController
+ * @description Logout a user
+ * @route POST /api/auth/logout
+ * @access Public
+ */
 
-module.exports={registerUser}
+const logoutUser=async(req,res)=>{
+   
+}
+
+
+module.exports={registerUser,loginUser}
