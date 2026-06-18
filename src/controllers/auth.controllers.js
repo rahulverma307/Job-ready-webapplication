@@ -6,7 +6,7 @@ const blackListModel = require("../models/blacklist.model.js");
 
 /**
  * @name registerUserController
- * @description Register a new user
+ * @description Register a new user account and generate a JWT token.
  * @route POST /api/auth/register
  * @access Public
  */
@@ -52,7 +52,7 @@ const registerUser=async(req,res)=>{
 
 /**
  * @name loginUserController
- * @description Login a user
+ * @description Authenticate a user and generate a JWT token.
  * @route POST /api/auth/login
  * @access Public
  */
@@ -99,9 +99,9 @@ const loginUser=async(req,res)=>{
 
 /**
  * @name logoutUserController
- * @description Logout a user
+ * @description Logout the current user and invalidate the JWT token.
  * @route POST /api/auth/logout
- * @access Public
+ * @access Private
  */
 
 const logoutUser=async(req,res)=>{
@@ -114,9 +114,28 @@ const logoutUser=async(req,res)=>{
    res.status(200).json({message:"User logged out successfully"})
 }
 
+/**
+ * @name getMeController
+ * @description Retrieve the currently authenticated user's profile.
+ * @route GET /api/auth/get-me
+ * @access Private
+ */
+
+const getMeController=async(req,res)=>{
+ const user = await userModel.findById(req.user.id)
+ if(!user){
+    return res.status(404).json({message:"User not found"})
+ }
+ return res.status(200).json({
+    message:"User fetched successfully",
+    user
+ })
+}
+
 
 module.exports={
    registerUser,
    loginUser,
-   logoutUser
+   logoutUser,
+   getMeController
 }
