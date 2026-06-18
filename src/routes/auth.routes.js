@@ -1,7 +1,10 @@
 const {Router}= require("express");
-const { registerUser, loginUser } = require("../controllers/auth.controllers.js");
+const { registerUser, loginUser, logoutUser } = require("../controllers/auth.controllers.js");
+const cookieParser = require("cookie-parser");
 
 const authRouter =Router()
+
+authRouter.use(cookieParser())
 
 /**
  * @description Register a new user
@@ -16,5 +19,12 @@ authRouter.post("/register",registerUser)
  * @access Public
  */
 authRouter.post("/login",loginUser)
+
+/**
+ * @description Logout a user
+ * @route GET /api/auth/logout
+ * @access Public
+ */
+authRouter.get("/logout",logoutUser)
 
 module.exports=authRouter
