@@ -1,16 +1,144 @@
-# React + Vite
+# 🚀 Gen AI Job Preparation Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=AI-Powered+Job+Preparation+Platform;Practice+Interviews+with+AI;Build+ATS-Friendly+Resumes;Track+Your+Career+Growth" alt="Typing SVG" />
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=node.js" />
+  <img src="https://img.shields.io/badge/MongoDB-darkgreen?style=for-the-badge&logo=mongodb" />
+  <img src="https://img.shields.io/badge/OpenAI-AI-black?style=for-the-badge&logo=openai" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Gen AI Job Preparation is an AI-powered platform that helps students and job seekers prepare for interviews, build ATS-friendly resumes, practice coding questions, and receive personalized career guidance.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+### 🤖 AI Interview Preparation
+
+* Technical Interview Practice
+* HR Interview Questions
+* Behavioral Round Preparation
+* AI Feedback & Suggestions
+
+### 📄 Resume Builder
+
+* ATS-Friendly Templates
+* Resume Score Analysis
+* AI Resume Suggestions
+
+### 💻 Coding Practice
+
+* DSA Problems
+* Coding Challenges
+* Progress Tracking
+
+### 🎯 Career Guidance
+
+* Personalized Learning Roadmap
+* Skill Gap Analysis
+* Job Readiness Assessment
+
+### 💬 AI Career Assistant
+
+* 24/7 Career Guidance
+* Interview Doubt Solving
+* Resume Review
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* React Router
+* Tailwind CSS
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+
+### AI
+
+* OpenAI API / Gemini API
+
+### Authentication
+
+* JWT
+* bcrypt
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+├── components/
+├── pages/
+├── services/
+├── hooks/
+├── App.jsx
+└── main.jsx
+
+server/
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+└── server.js
+```
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/yourusername/gen-ai-job-preparation.git
+
+cd gen-ai-job-preparation
+
+npm install
+
+npm run dev
+```
+
+---
+
+## 🌟 Future Enhancements
+
+* 🎤 Voice-Based Mock Interviews
+* 📹 Video Interview Analysis
+* 🔗 LinkedIn Profile Analyzer
+* 📊 AI Performance Dashboard
+* 🎯 Company-Specific Interview Prep
+
+---
+
+## 📈 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
+</p>
+
+---
+
+## 👨‍💻 Author
+
+**Rahul Verma**
+
+Building AI-powered solutions to help students become job-ready and crack their dream jobs.
+
+⭐ If you like this project, give it a star!
