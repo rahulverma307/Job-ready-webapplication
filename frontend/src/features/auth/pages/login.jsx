@@ -9,7 +9,7 @@ const Login = () => {
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
 
-    const navigate=useNavigate()
+  const navigate=useNavigate()
   const clickSound = useRef(new Audio("../click.mp3"));
 
   const playClickSound = () => {
@@ -19,10 +19,13 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+     playClickSound();
     handleLogin({email,password})
 
-    playClickSound();
-    console.log("Login");
+    navigate("/")
+
+   
   };
 
   if(loading){
@@ -38,7 +41,7 @@ const Login = () => {
           <div className="input-group">
             <label htmlFor="Email">Email</label>
             <input
-            value={email}
+            
             onChange={(e)=>setEmail(e.target.value)}
               type="email"
               id="Email"
@@ -49,7 +52,6 @@ const Login = () => {
           <div className="input-group">
             <label htmlFor="Password">Password</label>
             <input
-            value={password}
             onChange={(e)=>setPassword(e.target.value)}
               type="password"
               id="Password"
