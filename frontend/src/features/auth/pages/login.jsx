@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 import { useNavigate ,Link } from "react-router";
+import { useAuth } from "../hooks/useAuth.js";
 
 import "../auth.form.css";
 
 const Login = () => {
+  const {handleLogin,loading}=useAuth();
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
 
     const navigate=useNavigate()
   const clickSound = useRef(new Audio("../click.mp3"));
@@ -15,10 +19,15 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleLogin({email,password})
 
     playClickSound();
     console.log("Login");
   };
+
+  if(loading){
+    return <div>Loading...</div>
+  }
 
   return (
     <main>
@@ -29,6 +38,8 @@ const Login = () => {
           <div className="input-group">
             <label htmlFor="Email">Email</label>
             <input
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
               type="email"
               id="Email"
               placeholder="Enter your email address"
@@ -38,6 +49,8 @@ const Login = () => {
           <div className="input-group">
             <label htmlFor="Password">Password</label>
             <input
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
               type="password"
               id="Password"
               placeholder="Enter your password"

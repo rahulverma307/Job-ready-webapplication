@@ -3,7 +3,7 @@ import axios from "axios";
 // repeated code ko 
 
 const api = axios.create({
-    baseURL: "http://localhost:3000/api/auth",
+    baseURL: "http://localhost:3000/",
     withCredentials: true
 });
 
@@ -25,7 +25,7 @@ export const registerUser = async (username,email,password) => {
 
 export const loginUser = async (email,password) => {
     try {
-        const response = await api.post("/login", {
+        const response = await api.post("/api/auth/login", {
             email,
             password
         });
@@ -38,7 +38,7 @@ export const loginUser = async (email,password) => {
 
 export const logoutUser = async () => {
     try {
-        const response = await api.post("/logout", {});
+        const response = await api.post("/api/auth/logout", {});
         return response.data;
     } catch (error) {
         console.log(error);
@@ -47,7 +47,7 @@ export const logoutUser = async () => {
 
 export const getMe = async () => {
     try {
-        const response = await api.get("/get-me");
+        const response = await api.get("/api/auth/get-me");
         return response.data;
     } catch (error) {
         console.log(error);
