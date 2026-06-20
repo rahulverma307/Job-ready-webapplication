@@ -54,46 +54,32 @@ const behavioralQuestionSchema=new mongoose.Schema({
         type:String,
         required:[true,"Answer is required"]
     }
-})
+},{_id:false})
 
 const skillGapSchema=new mongoose.Schema({
     question:{
         type:String,
         required:[true,"Question is required"]
     },
-    suggestion:{
+    severity:{
         type:String,
-        required:[true,"Suggestion is required"]
-    },
-    answer:{
-        type:String,
-        required:[true,"Answer is required"]
+        enum:["low","medium","high"],
+        required:[true,"Severity is required"]
     }
-})
+},{_id:false})
 
-const feedbackSchema=new mongoose.Schema({
-    question:{
-        type:String,
-        required:[true,"Question is required"]
-    },
-    suggestion:{
-        type:String,
-        required:[true,"Suggestion is required"]
-    },
-    answer:{
-        type:String,
-        required:[true,"Answer is required"]
-    }
-})
-
-const scoreSchema=new mongoose.Schema({
-    question:{
-        type:String,
-        required:[true,"Question is required"]
-    },
-    score:{
+const preparationPlanSchema=new mongoose.Schema({
+    day:{
         type:Number,
-        required:[true,"Score is required"]
+        required:[true,"Day is required"]
+    },
+    focus:{
+        type:String,
+        required:[true,"Focus is required"]
+    },
+    tasks:{
+        type:Array,
+        required:[true,"Tasks is required"]
     }
 })
 
@@ -113,23 +99,10 @@ const interviewReportSchema=new mongoose.Schema({
         min:0,
         max:100
     },
-    technicalQuestion:{
-        type:Array,
-    },
-    behavioralQuestion:{
-        type:Array,
-        required:[true,"Behavioral question is required"]
-    },
-    skillGap:{
-        type:Array,
-        required:[true,"Skill gap is required"]
-    },
-    feedback:{
-        type:Array,
-        required:[true,"Feedback is required"]
-    },
-    score:{
-        type:Array,
-        required:[true,"Score is required"]
-    }
+    technicalQuestion:[technicalQuestionSchema],
+    behavioralQuestion:[behavioralQuestionSchema],
+    skillGap:[skillGapSchema],
+    preparationPlan:[preparationPlanSchema]
 })
+
+module.exports=mongoose.model("InterviewReport",interviewReportSchema);
